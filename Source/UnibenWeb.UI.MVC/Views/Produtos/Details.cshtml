@@ -1,0 +1,106 @@
+﻿@model UnibenWeb.Application.ViewModels.ProdutoVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>ProdutoVm</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NumeroRegistro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NumeroRegistro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sigla)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sigla)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DataRegistro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DataRegistro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AtivoSituacao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AtivoSituacao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PessoaId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PessoaId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SegmentoAssistencialId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SegmentoAssistencialId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoContratacaoProdutoId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TipoContratacaoProdutoId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AbrangenciaPlanoId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AbrangenciaPlanoId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FatorModeradorId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FatorModeradorId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AcomodacaoTipoId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AcomodacaoTipoId)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutoId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Entity ; Infra.Data 
+Identity
+AdminLTE ; UI
+MvcSiteMapProvider.MVC5 ; UI
+Dapper ; Infra.Data
+Install-Package Ninject ; CrossCutting.IoC
+Install-Package CommonServiceLocator ; Infra.Data, CrossCutting.IoC, Application
+Install-Package CommonServiceLocator.NinjectAdapter.Unofficial ; CrossCutting.IoC
+Install-Package Microsoft.Owin.Host.SystemWeb ; UI
+Install-Package Microsoft.AspNet.Identity.Owin ; UI
+Install-Package Microsoft.AspNet.Identity.Core ; UI
+Install-Package Boleto.Net

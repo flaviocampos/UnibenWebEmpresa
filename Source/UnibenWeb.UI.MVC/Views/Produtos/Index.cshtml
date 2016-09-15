@@ -1,0 +1,88 @@
+﻿@model IEnumerable<UnibenWeb.Application.ViewModels.ProdutoVm>
+
+@{
+    //Layout = null;
+}
+
+
+<h2>Produtos</h2>
+
+<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sigla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AtivoSituacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegmentoAssistencialId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoContratacaoProdutoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbrangenciaPlanoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatorModeradorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcomodacaoTipoId)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sigla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AtivoSituacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegmentoAssistencialId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoContratacaoProdutoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbrangenciaPlanoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatorModeradorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcomodacaoTipoId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
+            </td>
+        </tr>
+    }
+    
+    </table>

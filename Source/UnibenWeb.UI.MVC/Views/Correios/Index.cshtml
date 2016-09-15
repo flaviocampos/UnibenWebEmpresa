@@ -1,0 +1,66 @@
+﻿@*model IEnumerable<UnibenWeb.Application.ViewModels.EnderecoVM>*@
+
+@{
+    ViewBag.Title = "Details";
+}
+@Styles.Render("~/bundles/Content/DataTables")
+@Scripts.Render("~/bundles/scripts/DataTables")
+
+
+<div id="container">
+    <h2>Endereços</h2>
+    <table id="correiosDataTable" class="display">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>cidade</th>
+            <th>logradouro</th>
+            <th>bairro</th>
+            <th>cep</th>
+            <th>tp_logradouro</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+    @section scripts {
+
+        <script>
+            $(document).ready(function () {
+                var oTable = $('#correiosDataTable').dataTable({
+                        "iDisplayLength": 25,
+                        "bSortClasses": false,
+                        "bStateSave": false,
+                        "bPaginate": true,
+                        "bAutoWidth": false,
+                        "bDestroy": true,
+                        "autoFill": true,
+                        "responsive": true,
+                        "colReorder": true,
+                        "buttons": {
+                            buttons: [ 'copy', 'csv', 'excel' ]
+                        },
+                        "bJQueryUI": false,
+                        "bServerSide": true,
+                        "sAjaxSource": "@Url.Action("AjaxHandler", "Correios", routeValues: new { Area = "" })",
+                        "bProcessing": true,
+                        "aoColumns": [
+                            {
+                                "sName": "ID",
+                                "bSearchable": false,
+                                "bSortable": false,
+                                "fnRender": function (oObj) {
+                                    return '<a href=\"Cadastro/Pessoa/Details/' + oObj.aData[0] + '\">View</a>';
+                                }
+                            },
+                            { "sName": "CEP" },
+                            { "sName": "Bairro" },
+                            { "sName": "Logradouro" }
+                        ]
+                    });
+            });
+
+        </script>
+    }

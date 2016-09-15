@@ -1,0 +1,95 @@
+﻿@model IEnumerable<UnibenWeb.Application.ViewModels.EnderecoVM>
+
+<div class="form-horizontal">
+    <h4>Adicionar Mais Endereços</h4>
+    <hr/>
+        <div class="form-group">
+            <label class="control-label col-md-2">CEP</label>
+            <div class="col-md-10">
+                <input type="text" id="CEP" name="CEP" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Logradouro</label>
+            <div class="col-md-10">
+                <input type="text" id="Logradouro" name="Logradouro" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Numero</label>
+            <div class="col-md-10">
+                <input type="text" id="Numero" name="Numero" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bairro</label>
+            <div class="col-md-10">
+                <input type="text" id="Bairro" name="Bairro" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Complemento</label>
+            <div class="col-md-10">
+                <input type="text" id="Complemento" name="Complemento" />
+            </div>
+        </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a href="#" onclick="SalvarEndereco();">Salvar Enderecos</a>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="idPessoa" value="@ViewBag.Pessoa" />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logradouro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complemento)
+        </th>
+    </tr>
+
+    @foreach (var endereco in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => endereco.CEP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => endereco.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => endereco.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => endereco.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => endereco.Complemento)
+            </td>
+            <td>
+                @*
+                    @Html.ActionLink("Edit", "Edit", new {id = endereco.EnderecoId})
+                    @Html.ActionLink("Edit", "Edit", new {id = endereco.EnderecoId})
+                    @Html.ActionLink("Edit", "Edit", new {id = endereco.EnderecoId})
+                *@
+            </td>
+        </tr>
+    }
+</table>

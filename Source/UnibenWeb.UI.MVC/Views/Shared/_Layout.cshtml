@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <!-- http://www.asp.net/identity/overview/getting-started/introduction-to-aspnet-identity -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+        -->
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+    <!-- Ionicons -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <!-- Theme style -->
+    <!--<link rel="stylesheet" href="admin-lte/css/AdminLTE.min.css">-->
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect.
+    -->
+    <!--<link rel="stylesheet" href="admin-lte/css/skins/skin-green.min.css">        -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    @Styles.Render("~/css")
+    @Scripts.Render("~/js")
+
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-green sidebar-mini sidebar-collapse">
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>U</b>n</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Sistema</b>Uniben</span>
+            </a>
+
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+
+
+                    @Html.Partial("_LoginPartial")
+                    @*<ul class="nav navbar-nav"></ul>*@
+
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+
+
+
+
+
+
+                <ul class="sidebar-menu">
+
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i>
+                            <span>Básicos</span> <i class="fa fa-angle-left pull-right"></i>
+                            <span class="label label-primary pull-right">7</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Estado Civil</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Situação do Plano</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Abrangência</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Modo de Pagamento</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Grau de Parentesco</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Acomodação</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Segmento Assistencial</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-files-o"></i>
+                            <span>Cadastros</span>
+                            <span class="label label-primary pull-right">5</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Pessoa</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Instituição</a></li>
+                            <li><a href="/Cadastro/Operadoras"><i class="fa fa-circle-o"></i> Operadora</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Empresa</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-money"></i> <!-- icore de duas folhas -->
+                            <span>Faturamento</span> <i class="fa fa-angle-left pull-right"></i>
+                            <span class="label label-primary pull-right">3</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Recebimento</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Banco - Remessa</a></li>
+                            <li><a href="/Cadastro/Pessoa"><i class="fa fa-circle-o"></i> Banco - Retorno</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-money"></i> <!-- icore de duas folhas -->
+                            <span>Administrativo</span> <i class="fa fa-angle-left pull-right"></i>
+                            <span class="label label-primary pull-right">3</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Administrativo/ContasPagar"><i class="fa fa-circle-o"></i> Contas a Pagar</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="treeview">
+                        <a class="" href="#">
+                            <i class="fa fa-male"></i> <!-- icore de duas folhas -->
+                            <span>Testes</span> <i class="fa fa-angle-left pull-right"></i>
+                            <span class="label label-primary pull-right">3</span>
+                        </a>
+                        <ul class="treeview-menu" style="width: 223px;">
+                            <li style=""><a style="" href="/Correios"><i class="fa fa-circle-o"></i> BD Correios com DataTables</a></li>
+
+                            <li style=""><a style="" href="/Home/BoletoPreview" target="_blank"><i class="fa fa-circle-o"></i> Emissão de Boleto</a></li>
+                        </ul>
+                    </li>
+
+
+                    @{
+                        if (Request.IsAuthenticated) // Encapsular dentro do Helper para evitar Codigo C# dentro da view
+                        {
+                            var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+                            var claim = claimsIdentity.FindFirst(c => c.Type == "Adm");
+                            if (claim != null)
+                            {
+                                if (claim.Value == "1")
+                                {
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-money"></i> <!-- icore de duas folhas -->
+                                            <span>Administração</span> <i class="fa fa-angle-left pull-right"></i>
+                                            <span class="label label-primary pull-right">3</span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li><a href="@Url.Action("", "Pessoas", routeValues: new {Area = ""})"><i class="fa fa-circle-o"></i> Recebimento</a></li>
+                                            <li><a href="@Url.Action("", "Pessoas", routeValues: new {Area = ""})"><i class="fa fa-circle-o"></i> Banco - Remessa</a></li>
+                                            <li><a href="@Url.Action("", "Pessoas", routeValues: new {Area = ""})"><i class="fa fa-circle-o"></i> Banco - Retorno</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+
+
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <!--
+
+                 <h1>
+                    Página Inicial
+                    <small>- Bem vindo</small>
+                </h1>
+
+                    <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-arrows"></i> Resumo</a></li>
+                    <li class="active">Esta Página</li>
+                    </ol>
+                    $Html.MvcSiteMap().Menu("BootstrapMenuHelperModel")
+                    -->
+
+                @Html.MvcSiteMap().SiteMapPath()  <!-- alteracoes em SiteMapNodeModel -->
+
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <div>
+            <footer class="main-footer">
+                <!-- To the right -->
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.3.5
+                </div>
+                <!-- Default to the left -->
+                <strong>Copyright &copy; 2016 <a href="#">Uniben</a>.</strong> Todos direitos reservados.
+            </footer>
+        </div>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane active" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript::;">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript::;">
+                                <h4 class="control-sidebar-subheading">
+                                    Custom Template Design
+                                    <span class="label label-danger pull-right">70%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    <!--
+    <div class="container body-content">
+
+        <hr />
+        <footer>
+
+        </footer>
+    </div>
+    -->
+
+    <script>
+        var AdminLTEOptions = {
+            sidebarExpandOnHover: true,
+            enableBoxRefresh: true,
+            screenSizes: {
+                xs: 480,
+                sm: 768,
+                md: 992,
+                lg: 1200
+            }
+        };
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
