@@ -16,25 +16,7 @@ namespace UnibenWeb.Infra.Data.Context
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UnibenContext>());
         }
 
-        public DbSet<Pessoa> Pessoas { get; set; }
-        public DbSet<PessoaTipo> PessoaTipos { get; set; }
-        public DbSet<PessoaSexo> PessoaSexos { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
-        public DbSet<EstadoCivil> EstadoCivis { get; set; }
         public DbSet<Banco> Bancos { get; set; }
-        public DbSet<CheckListContrato> CheckListContratos { get; set; }
-        public DbSet<SegmentoAssistencial> SegmentoAssistenciais { get; set; }
-        public DbSet<TipoContratacaoProduto> TipoContratacaoProdutos { get; set; }
-        public DbSet<AbrangenciaPlano> AbrangenciaPlanos { get; set; }
-        public DbSet<FatorModerador> FatorModeradores { get; set; }
-        public DbSet<AcomodacaoTipo> AcomodacaoTipos { get; set; }
-        public DbSet<PagarConta> PagarContas { get; set; }
-        public DbSet<PagarContaParcela> PagarContaParcelas { get; set; }
-        public DbSet<CentroCusto> CentroCustos { get; set; }
-        public DbSet<ContaContabil> ContaContabeis { get; set; }
-        public DbSet<TipoLancamento> TiposLancamento { get; set; }
-        public DbSet<UnidadeNegocio> UnidadesNegocio { get; set; }
-        public DbSet<ContaTipoDocumento> ContaTipoDocumentos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -53,26 +35,7 @@ namespace UnibenWeb.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
-            modelBuilder.Configurations.Add(new PessoaEFConfig());
-            modelBuilder.Configurations.Add(new EnderecoEFConfig());
-            modelBuilder.Configurations.Add(new EstadoCivilEFConfig());
-            modelBuilder.Configurations.Add(new TelContatoEFConfig());
-            modelBuilder.Configurations.Add(new SegmentoAssistencialEFConfig());
-            modelBuilder.Configurations.Add(new ModoPagamentoEFConfig());
-            modelBuilder.Configurations.Add(new GrauParentescoEFConfig());
             modelBuilder.Configurations.Add(new BancoEFConfig());
-            modelBuilder.Configurations.Add(new AcomodacaoTipoEFConfig());
-            modelBuilder.Configurations.Add(new AbrangenciaPlanoEFConfig());
-            modelBuilder.Configurations.Add(new PessoaSexoEfConfig());
-            modelBuilder.Configurations.Add(new PessoaTipoEfConfig());
-            modelBuilder.Configurations.Add(new ProdutoEfConfig());
-            modelBuilder.Configurations.Add(new PagarContaEfConfig());
-            modelBuilder.Configurations.Add(new CentroCustoEfConfig());
-            modelBuilder.Configurations.Add(new PagarContaParcelaEfConfig());
-            modelBuilder.Configurations.Add(new ContaContabilEfConfig());
-            modelBuilder.Configurations.Add(new TipoLancamentoEfConfig());
-            modelBuilder.Configurations.Add(new UnidadeNegocioEfConfig());
-            modelBuilder.Configurations.Add(new ContaTipoDocumentoEfConfig());
             // ~~~
 
             base.OnModelCreating(modelBuilder);

@@ -19,15 +19,7 @@ namespace UnibenWeb.Application.AutoMapper
 
         protected override void Configure()
         {
-            CreateMap<PessoaVM, Pessoa>();
-            CreateMap<EnderecoVM,Endereco>();
-            CreateMap<PessoaEnderecoVM, Pessoa>();
-            CreateMap<PessoaEnderecoVM, Endereco>();
-            CreateMap<BancoVM, Banco>();
-            CreateMap<EstadoCivilVM, EstadoCivil>();
-            CreateMap<Pessoa,OperadoraVm > ();
-            CreateMap<PagarConta, PagarContaVm>();
-            CreateMap<CentroCusto, CentroCustoVm>();
+            CreateMap<BancoVm, Banco>();
         }
 
     }

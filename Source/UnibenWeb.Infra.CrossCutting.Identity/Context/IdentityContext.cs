@@ -16,10 +16,13 @@ namespace UnibenWeb.Infra.CrossCutting.Identity.Context
         {
         }
 
+        /*
+
+        public DbSet<IdentityUser> AspNetUsers { get; set; }
+        */
         public DbSet<UsuarioClient> UsuarioClients { get; set; }
         public DbSet<UsuarioClaim> UsuarioClaims { get; set; }
-        public DbSet<IdentityUser> AspNetUsers { get; set; }
-        public DbSet<IdentityUserClaim> AcessoUserClaims { get; set; }
+        public DbSet<IdentityUserClaim> AspNetUserClaims { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

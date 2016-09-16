@@ -197,20 +197,12 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CheckListContratosController.cs" />
-    <Compile Include="Controllers\CorreiosController.cs" />
-    <Compile Include="Controllers\EnderecosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Identity\AccountController.cs" />
     <Compile Include="Controllers\Identity\ClaimsAdminController.cs" />
     <Compile Include="Controllers\Identity\ManageController.cs" />
     <Compile Include="Controllers\Identity\RolesAdminController.cs" />
     <Compile Include="Controllers\Identity\UserAdminController.cs" />
-    <Compile Include="Controllers\OperadorasController.cs" />
-    <Compile Include="Controllers\PagarContaParcelasController.cs" />
-    <Compile Include="Controllers\PagarContasController.cs" />
-    <Compile Include="Controllers\PessoasController.cs" />
-    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\RelatorioJuridicoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -290,6 +282,7 @@
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\teste.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -319,12 +312,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Pessoas\Create.cshtml" />
-    <Content Include="Views\Pessoas\Delete.cshtml" />
-    <Content Include="Views\Pessoas\Details.cshtml" />
-    <Content Include="Views\Pessoas\Edit.cshtml" />
-    <Content Include="Views\Pessoas\Index.cshtml" />
-    <Content Include="Views\Pessoas\_Endereco.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -368,35 +355,9 @@
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="Views\Home\SignOut.cshtml" />
-    <Content Include="Views\Correios\Index.cshtml" />
     <Content Include="Views\Home\BoletoPreview.cshtml">
       <BrowseToURL>~/Home/BoletoPreview</BrowseToURL>
     </Content>
-    <Content Include="Views\CheckListContratos\Create.cshtml" />
-    <Content Include="Views\CheckListContratos\Delete.cshtml" />
-    <Content Include="Views\CheckListContratos\Details.cshtml" />
-    <Content Include="Views\CheckListContratos\Edit.cshtml" />
-    <Content Include="Views\CheckListContratos\Index.cshtml" />
-    <Content Include="Views\Enderecos\_ListarEnderecos.cshtml" />
-    <Content Include="Views\Produtos\Create.cshtml" />
-    <Content Include="Views\Produtos\Delete.cshtml" />
-    <Content Include="Views\Produtos\Details.cshtml" />
-    <Content Include="Views\Produtos\Edit.cshtml" />
-    <Content Include="Views\Produtos\Index.cshtml" />
-    <Content Include="Views\Operadoras\ListarOperadoras.cshtml" />
-    <Content Include="Views\Operadoras\CriarOperadora.cshtml" />
-    <Content Include="Views\PagarContas\Listar.cshtml" />
-    <Content Include="Views\PagarContas\Criar.cshtml" />
-    <Content Include="Views\PagarContas\Detalhar.cshtml" />
-    <Content Include="Views\PagarContaParcelas\Listar.cshtml" />
-    <Content Include="Views\PagarContas\_Detalhar.cshtml" />
-    <Content Include="Views\PagarContas\_Editar.cshtml" />
-    <Content Include="Views\PagarContas\_Excluir.cshtml" />
-    <Content Include="Views\PagarContaParcelas\_Detalhar.cshtml" />
-    <Content Include="Views\PagarContaParcelas\_Editar.cshtml" />
-    <Content Include="Views\PagarContaParcelas\_Excluir.cshtml" />
-    <Content Include="Views\PagarContaParcelas\_Pagar.cshtml" />
-    <Content Include="Views\Home\FbTest.cshtml" />
     <Content Include="Views\RelatorioJuridico\Relatorio.cshtml" />
   </ItemGroup>
   <ItemGroup>

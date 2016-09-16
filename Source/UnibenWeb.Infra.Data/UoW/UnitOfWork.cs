@@ -10,7 +10,6 @@ namespace UnibenWeb.Infra.Data.UoW
     {
 
         private readonly UnibenContext _context;
-        private readonly FirebirdContext _fbContext;
         private readonly UnibenLogContext _logContext;
         private readonly ContextManager _contextManager = ServiceLocator.Current.GetInstance<IContextManager>() as ContextManager;
 
@@ -19,7 +18,6 @@ namespace UnibenWeb.Infra.Data.UoW
         public UnitOfWork()
         {
             _context = _contextManager.GetContext();
-            _fbContext = _contextManager.GetFbContext();
             _logContext = _contextManager.GetContextLog();
         }
 

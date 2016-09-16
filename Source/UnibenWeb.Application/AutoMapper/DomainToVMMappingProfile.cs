@@ -20,15 +20,7 @@ namespace UnibenWeb.Application.AutoMapper
         protected override void Configure()
         {
             //CreateMap<Pessoa, PessoaVM>().ForMember(dst=>dst.Sexo, pt=>pt.MapFrom(src=>src.SexoId));
-            CreateMap<Pessoa, PessoaVM>();
-            CreateMap<Endereco, EnderecoVM>();
-            CreateMap<Pessoa, PessoaEnderecoVM>();
-            CreateMap<Endereco, PessoaEnderecoVM>();
-            CreateMap<Banco, BancoVM>();
-            CreateMap<EstadoCivil, EstadoCivilVM>();
-            CreateMap<OperadoraVm, Pessoa>();
-            CreateMap<PagarContaVm, PagarConta>();
-            CreateMap<CentroCustoVm, CentroCusto>();
+            CreateMap<Banco, BancoVm>();
             // Para utilizar quando os campos do mapeamento nao batem:
             // .ForMember(dest => dest.Enderecos, pt => pt.MapFrom(src => src.EnderecoList));
         }

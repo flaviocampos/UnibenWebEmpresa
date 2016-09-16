@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace UnibenWeb.Infra.Data.Context
 {
-    public class FirebirdContext
+    public class FirebirdContext: IDisposable
     {
         public FbConnection[] ConnectionPool;
 
-        const string connectionString = "User=SYSDBA;" + "Password=masterkey;" + "Database=D:\\Sistema\\info\\OPERADORAPS_old3.FDB;" +
+        const string connectionString = "User=SYSDBA;" + "Password=masterkey;" + "Database=D:\\Sistema\\info\\OPERADORAPS_old4.FDB;" +
                 "DataSource=192.168.1.2;" + "Port=3050;" + "Dialect=3;" + "Charset=NONE;" + "Role=;" +
                 "Connection lifetime=15;" + "Pooling=true;" + "MinPoolSize=0;" +
-                "MaxPoolSize=50;" + "Packet Size=8192;" + "ServerType=0";
+                "MaxPoolSize=10;" + "Packet Size=8192;" + "ServerType=0";
 
         public FirebirdContext()
         {
-            if (ConnectionPool == null){
+            if (ConnectionPool == null) {
                 ConnectionPool = new FbConnection[1];
             }
             if (ConnectionPool[0] == null)
@@ -37,5 +37,10 @@ namespace UnibenWeb.Infra.Data.Context
             return ConnectionPool[connectNumber];
         }
 
+        public void Dispose()
+        {
+            //Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }

@@ -2,108 +2,161 @@
     ViewBag.Title = "Relatorio";
 }
 
-<h2>Relatorio</h2>
+<div style="float: left;" class="col-md-8 col-sm-6">@* left *@
 
-<div id="collapse2" class="panel-collapse collapse in">
-    <div class="panel-body">
-        <table id="myDataTable" class="table">
-            <thead data-toggle="tooltip" title="Pressione SHIFT para filtrar mais de uma coluna">
-                <tr>
-                    <th>Coluna_01</th>
-                    <th>Coluna_02</th>
-                    <th>Centro de Custo</th>
-                    <th>Parcelas</th>
-                    <th>Observação</th>
-                    <th>Tipo de Lançamento</th>
-                    <th>Valor Total</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-            <tfoot>
-                <tr>
-                    <th class="searchable">Coluna_01</th>
-                    <th class="searchable">Coluna_02</th>
-                    <th class="searchable">Centro de Custo</th>
-                    <th class="searchable">Parcelas</th>
-                    <th class="searchable">Observação</th>
-                    <th class="searchable">Tipo de Lançamento</th>
-                    <th class="searchable">Valor Total</th>
-                    <th></th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+    <h2>Uniben Administradora de Benefícios Ltda</h2>
+    <h2>Relatório</h2>
+
+</div>
+<div style="float: right;" class="col-md-4 col-sm-6">@* right *@
+    <h2>CNPJ: 15.156.097/0001-01</h2>
+    <h2>Registro ANS: 418528</h2>
 </div>
 
-@Scripts.Render("~/js/datatables")
-@Styles.Render("~/css/datatables")
+    <div id="collapse2" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <table id="myDataTable" class="table">
+                <thead data-toggle="tooltip" title="Pressione SHIFT para filtrar mais de uma coluna">
+                    <tr>
+                        <th></th>
+                        <th>sb1_titular</th>
+                        <th>BENEFICIÁRIO</th>
+                        <th>COMPET</th>
+                        <th>TIPO</th>
+                        <th>VALOR TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th class="searchable">BENEFICIÁRIO</th>
+                        <th class="searchable">COMPET</th>
+                        <th class="searchable">TIPO</th>
+                        <th class="searchable">VALOR TOTAL</th>
+                        @*
+                            <th>sb2_valorbase</th>
+                            <th>sb2_encargos</th>
+                            <th>sb2_total</th>
+                            <th></th>*@
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    @Scripts.Render("~/js/datatables")
+    @Styles.Render("~/css/datatables")
 
 
-@section scripts {
-    @*
-        <script data-pace-options='{"startOnPageLoad": false }' src="~/Scripts/pace.js"></script>
+    @section scripts {
+        @*
 
-            <script data-pace-options='{ "elements": { "selectors": [".selector"] }, "startOnPageLoad": false }' src="~/Scripts/Outros/pace.js"></script>
-            @Scripts.Render("~/bundles/outros")
-                    var paceOptions = {
-                target: '.pace-div',
-                // Disable the 'elements' source
-                elements: {
-                    selectors: ['.my-page']
-                },
-                // Only show the progress on regular and ajax-y page navigation,
-                // not every request
-                restartOnRequestAfter: false,
-                startOnPageLoad: false
-            }
 
-            $(document).ready(function () {
-               // $(".pace").hide();
-            });
-    *@
-    <script>
-        $(document)
-            .ready(function () {
-                // Setup - add a text input to each footer cell
-                $('#myDataTable tfoot th.searchable').each(function () {
-                    var title = $(this).text();
-                    $(this).html('<input type="text" class=".input-sm" placeholder="' + title + '" data-toggle = "tooltip" title="Buscar em ' + title + '" />');
-                });
 
-                // DataTable
-                var oTable = $('#myDataTable').DataTable({
-                    "iDisplayLength": 25,
-                    "bSortClasses": false,
-                    "bStateSave": false,
-                    "bPaginate": true,
-                    "bAutoWidth": false,
-                    "bDestroy": true,
-                    "autoFill": true,
-                    "responsive": true,
-                    /*
-                    l - length changing input control
-                    f - filtering input
-                    t - The table!
-                    i - Table information summary
-                    p - pagination control
-                    r - processing display element
-                    */
-                    "dom": "<'row'<'col-md-8'f><'col-md-4'l>>t<rBip>",
-                    //"dom": '<"top"flt><"mid"r><"bottom"Bip><"clear">',
-                    "buttons": {
-                        buttons: ['copy', 'csv', 'excel']
-                    },
-                    "colReorder": true,
-                    "oLanguage": { "sSearch": "Procurar:", "sProcessing": "Processando" },
-                    "bJQueryUI": false,
-                    "bServerSide": true,
-                    "sAjaxSource": "@Url.Action("FillDataTables_AjaxHandler", "RelatorioJuridico", routeValues: new {Area = ""})",
-                    "bProcessing": true,
-                    "columnDefs": [
-                        { "sName": "PagarContaID", "targets": 0, "bSearchable": false, "bSortable": false, "visible": false },
-                        { "sName": "CLINOME", "targets": 1 },
-                        { "sName": "CentrosCustoDescricao", "targets": 2 },
+
+
+    https://datatables.net/examples/advanced_init/footer_callback.html
+
+
+
+
+    <script data-pace-options='{"startOnPageLoad": false }' src="~/Scripts/pace.js"></script>
+
+        <script data-pace-options='{ "elements": { "selectors": [".selector"] }, "startOnPageLoad": false }' src="~/Scripts/Outros/pace.js"></script>
+        @Scripts.Render("~/bundles/outros")
+                var paceOptions = {
+            target: '.pace-div',
+            // Disable the 'elements' source
+            elements: {
+                selectors: ['.my-page']
+            },
+            // Only show the progress on regular and ajax-y page navigation,
+            // not every request
+            restartOnRequestAfter: false,
+            startOnPageLoad: false
+        }
+
+        $(document).ready(function () {
+           // $(".pace").hide();
+        });
+        *@
+        <script>
+            $(document)
+                .ready(function () {
+                    // Setup - add a text input to each footer cell
+                    $('#myDataTable tfoot th.searchable').each(function () {
+                        var title = $(this).text();
+                        $(this).html('<input type="text" class=".input-sm" placeholder="' + title + '" data-toggle = "tooltip" title="Buscar em ' + title + '" />');
+                    });
+
+                    // DataTable
+                    var oTable = $('#myDataTable').DataTable({
+                        "iDisplayLength": 25,
+                        "bSortClasses": false,
+                        "bStateSave": false,
+                        "bPaginate": true,
+                        "bAutoWidth": false,
+                        "bDestroy": true,
+                        "autoFill": true,
+                        "responsive": true,
+                        /*
+                        l - length changing input control
+                        f - filtering input
+                        t - The table!
+                        i - Table information summary
+                        p - pagination control
+                        r - processing display element
+                        */
+                        //"dom": "<'row'<'col-md-8'f><'col-md-4'l>>t<rBip>",
+                        "dom": "<'row'<'col-md-8'><'col-md-4'>>t<rBipfl>",
+                        //"dom": '<"top"flt><"mid"r><"bottom"Bip><"clear">',
+                        "buttons": {
+                            buttons: ['copy', 'csv', 'excel']
+                        },
+                        "colReorder": true,
+                        "oLanguage": { "sSearch": "Procurar:", "sProcessing": "Processando" },
+                        "bJQueryUI": false,
+                        "bServerSide": true,
+                        "sAjaxSource": "@Url.Action("FillDataTables_AjaxHandler", "RelatorioJuridico", routeValues: new {Area = ""})",
+                        "bProcessing": true,
+                        "columnDefs": [
+                            { "sName": "CLICODIGO", "targets": 0, "bSearchable": false, "bSortable": false, "visible": false },
+                            { "sName": "CLINOME", "targets": 1, "bSearchable": false, "bSortable": false, "visible": false },
+                            { "sName": "CLIDEPNOME", "targets": 2 },
+                            { "sName": "CLIMCOMPETENCIA", "targets": 3 },
+                            { "sName": "FLANCTACRONIMO", "targets": 4 },
+                            { "sName": "VL_TOTAL", "targets": 5 }
+                            @*
+                            {
+                                "sName": "Operacoes", "targets": 7, "bSearchable": false, "bSortable": false, "width": 45,
+                                "render": function (data, type, full, meta) {
+                                    //return "Row number is " + ix;
+                                    return '<a data-toggle="modal" data-target="#detailModal" data-id="' + full[0] + '">' + '<i class="fa fa-binoculars" data-toggle = "tooltip" title="Detalhes" ></i>' + '</a>' // href="' + link_detail + '"
+                                    + ' | <a data-toggle="modal" data-target="#editModal" data-id="' + full[0] + '">' + '<i class="fa fa-pencil-square-o" data-toggle = "tooltip" title="Editar" ></i>' + '</a>'
+                                    + ' | <a data-toggle="modal" data-target="#deleteModal" data-id="' + full[0] + '">' + '<i class="fa fa-trash" data-toggle = "tooltip" title="Excluir" ></i>' + '</a>'
+                                    //return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="plus">' + '<i class="fa fa-binoculars" data-toggle = "tooltip" title="Detalhes" ></i>' + '</button>'
+                    }
+                }*@
+                        ],
+                        "drawCallback": function (settings) {
+                            var api = this.api();
+                            var rows = api.rows({ page: 'current' }).nodes();
+                            var last = null;
+
+                            api.column(1, { page: 'current' }).data().each(function (group, i) {
+                                if (last !== group) {
+                                    $(rows).eq(i).before(
+                                        '<tr class="group"><td colspan="5">' + group + '</td></tr>'
+                                    );
+
+                                    last = group;
+                                }
+                            });
+                        }
+                    });
+                    @*
                         {
                             "sName": "NumeroParcelas", "targets": 3,
                             "render": function (data, type, full, meta) {
@@ -115,200 +168,184 @@
                                 //return "Row number is " + ix;
                                 return '<a href="' + link + '">' + '<i class="fa fa-money" data-toggle = "tooltip" title="Detalhar Parcelamento" ></i>' + '</a> \t (' + (data) + ')';
                             }
+
                         },
-                        { "sName": "Observacao", "targets": 4 },
-                        { "sName": "TipoLancamentoId", "targets": 5 },
-                        { "sName": "ValorTotal", "targets": 6 },
-                            {
-                                "sName": "Operacoes", "targets": 7, "bSearchable": false, "bSortable": false, "width": 45,
-                                "render": function (data, type, full, meta) {
-                                    @*
-                                    var link_detail = '@Url.Action("Detalhes", "PagarContas", routeValues: new { Area = "", id = "_rowid"})';
-                                    link_detail = link_detail.replace('_rowid', full[0]);
-                                    var link_edit = '@Url.Action("Editar", "PagarContas", routeValues: new { Area = "", id = "_rowid"})';
-                                    link_edit = link_edit.replace('_rowid', full[0]);
-                                    var link_delete = '@Url.Action("Excluir", "PagarContas", routeValues: new { Area = "", id = "_rowid"})';
-                                    link_delete = link_delete.replace('_rowid', full[0]);
-                                    *@
-                                    //return "Row number is " + ix;
-                                    return '<a data-toggle="modal" data-target="#detailModal" data-id="' + full[0] + '">' + '<i class="fa fa-binoculars" data-toggle = "tooltip" title="Detalhes" ></i>' + '</a>' // href="' + link_detail + '"
-                                    + ' | <a data-toggle="modal" data-target="#editModal" data-id="' + full[0] + '">' + '<i class="fa fa-pencil-square-o" data-toggle = "tooltip" title="Editar" ></i>' + '</a>'
-                                    + ' | <a data-toggle="modal" data-target="#deleteModal" data-id="' + full[0] + '">' + '<i class="fa fa-trash" data-toggle = "tooltip" title="Excluir" ></i>' + '</a>'
-                                    //return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="plus">' + '<i class="fa fa-binoculars" data-toggle = "tooltip" title="Detalhes" ></i>' + '</button>'
+                    *@
+
+                    $('#detailModal').on('show.bs.modal', function (event) {
+                        Pace.restart();
+                        var button = $(event.relatedTarget);
+                        var data_id = button.data('id');
+                        var url = '/Administrativo/ContasPagar/Detalhar?id=' + data_id;
+                        $.ajax({
+                            url: url,
+                            type: this.method,
+                            data: $(this).serialize(),
+                            success: function (data) {
+                                if (data) {
+                                    $(data).appendTo('#detailModal .modal-body');
+                                }
+                                else {
+                                    alert("Erro");
                                 }
                             }
-                    ]
-                });
-
-                $('#detailModal').on('show.bs.modal', function (event) {
-                    Pace.restart();
-                    var button = $(event.relatedTarget);
-                    var data_id = button.data('id');
-                    var url = '/Administrativo/ContasPagar/Detalhar?id=' + data_id;
-                    $.ajax({
-                        url: url,
-                        type: this.method,
-                        data: $(this).serialize(),
-                        success: function (data) {
-                            if (data) {
-                                $(data).appendTo('#detailModal .modal-body');
-                            }
-                            else {
-                                alert("Erro");
-                            }
-                        }
+                        });
                     });
-                });
 
-                $('#editModal').on('show.bs.modal', function (event) {
-                    Pace.restart();
-                    var button = $(event.relatedTarget);
-                    var data_id = button.data('id');
-                    var url = '/Administrativo/ContasPagar/Editar?id=' + data_id;
-                    $.ajax({
-                        url: url,
-                        type: this.method,
-                        data: $(this).serialize(),
-                        success: function (data) {
-                            if (data) {
-                                debugger;
-                                $(data).appendTo('#editModal .modal-body');
-                                $(".select2").select2();
-                            }
-                            else {
-                                alert("Erro");
-                            }
-                        }
-                    });
-                });
-
-                $('#deleteModal').on('show.bs.modal', function (event) {
-                    Pace.restart();
-                    var button = $(event.relatedTarget);
-                    var data_id = button.data('id');
-                    var url = '/Administrativo/ContasPagar/Excluir?id=' + data_id;
-                    $.ajax({
-                        url: url,
-                        type: this.method,
-                        data: $(this).serialize(),
-                        success: function (data) {
-                            if (data) {
-                                $(data).appendTo('#deleteModal .modal-body');
+                    $('#editModal').on('show.bs.modal', function (event) {
+                        Pace.restart();
+                        var button = $(event.relatedTarget);
+                        var data_id = button.data('id');
+                        var url = '/Administrativo/ContasPagar/Editar?id=' + data_id;
+                        $.ajax({
+                            url: url,
+                            type: this.method,
+                            data: $(this).serialize(),
+                            success: function (data) {
+                                if (data) {
+                                    debugger;
+                                    $(data).appendTo('#editModal .modal-body');
+                                    $(".select2").select2();
                                 }
-                            else {
-                                alert("Erro");
+                                else {
+                                    alert("Erro");
+                                }
+                            }
+                        });
+                    });
+
+                    $('#deleteModal').on('show.bs.modal', function (event) {
+                        Pace.restart();
+                        var button = $(event.relatedTarget);
+                        var data_id = button.data('id');
+                        var url = '/Administrativo/ContasPagar/Excluir?id=' + data_id;
+                        $.ajax({
+                            url: url,
+                            type: this.method,
+                            data: $(this).serialize(),
+                            success: function (data) {
+                                if (data) {
+                                    $(data).appendTo('#deleteModal .modal-body');
+                                }
+                                else {
+                                    alert("Erro");
+                                }
+                            }
+                        });
+                    });
+
+                    $('#detailModal').on('hide.bs.modal', function (event) {
+                        $('#detailModal .modal-body').replaceWith('<div class="modal-body" id="detailModalContent"></div>');
+                    });
+
+                    $('#editModal').on('hide.bs.modal', function (event) {
+                        $('#editModal .modal-body').replaceWith('<div class="modal-body" id="editModalContent"></div>');
+                    });
+
+                    $('#deleteModal').on('hide.bs.modal', function (event) {
+                        $('#deleteModal .modal-body').replaceWith('<div class="modal-body" id="deleteModalContent"></div>');
+                    });
+
+                    // Apply the search
+                    oTable.columns('').every(function () {
+                        var that = this;
+                        $('input', this.footer('')).on('keyup change', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    });
+                });
+
+
+            function AtualizarConta() {
+                debugger;
+                var pagarcontaid = $("#PagarContaId").val();
+                var dataemissao = $("#DataEmissao").val();
+                var dataacolhimentocontapagar = $("#DataAcolhimentoContaPagar").val();
+                var dataprevisaopagamento = $("#DataPrevisaoPagamento").val();
+                var numeroemissaoforcenedor = $("#NumeroEmissaoFornecedor").val();
+                var descricao = $("#Descricao").val();
+                var numeroparcelas = $("#NumeroParcelas").val();
+                var observacao = $("#Observacao").val();
+                var tipoConta = $("#TipoConta").val();
+                var valortotal = $("#ValorTotal").val();
+                var centrocustoid = $("#CentroCustoId").val();
+                var unidadenegocioid = $("#UnidadeNegocioId").val();
+                var tipolancamentoid = $("#TipoLancamentoId").val();
+                var contacontabilid = $("#ContaContabilId").val();
+                var fornecedorid = $("#FornecedorId").val();
+                var contatipodocumentoid = $("#ContaTipoDocumentoId").val();
+                // ------
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var tokenadr = $('form[action="/Administrativo/ContasPagar/Editar"] input[name="__RequestVerificationToken"]').val();
+                var headers = {};
+                var headersadr = {};
+                // ------
+                headers['__RequestVerificationToken'] = token;
+                headersadr['__RequestVerificationToken'] = tokenadr;
+                var url = '/Administrativo/ContasPagar/Editar?id=' + pagarcontaid;
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    datatype: "json",
+                    headers: headersadr,
+                    data: {
+                        PagarContaId: pagarcontaid,
+                        DataEmissao: dataemissao,
+                        DataAcolhimentoContaPagar: dataacolhimentocontapagar,
+                        DataPrevisaoPagamento: dataprevisaopagamento,
+                        NumeroEmissaoFornecedor: numeroemissaoforcenedor,
+                        Descricao: descricao,
+                        NumeroParcelas: numeroparcelas,
+                        Observacao: observacao,
+                        ValorTotal: valortotal,
+                        CentroCustoId: centrocustoid,
+                        FornecedorId: fornecedorid,
+                        TipoLancamentoId: tipolancamentoid,
+                        UnidadeNegocioId: unidadenegocioid,
+                        ContaContabilId: contacontabilid,
+                        ContaTipoDocumentoId: contatipodocumentoid,
+                        __RequestVerificationToken: token
+                    },
+                    success: function (data) {
+                        if (data.Resultado > 0) {
+                            //ListarEnderecos(data.Resultado);
+                            window.location.href = '/Administrativo/ContasPagar/Listar';
+                        } else {
+                            for (var i = 0; i < data.Resultado['Erros'].length; i++) {
+                                $('#divValidate').append($('<li>', {
+                                    text: data.Resultado['Erros'][i].Message
+                                }));
+                                $('#divValidate').show();
                             }
                         }
-                    });
-                });
-
-                $('#detailModal').on('hide.bs.modal', function (event) {
-                    $('#detailModal .modal-body').replaceWith('<div class="modal-body" id="detailModalContent"></div>');
-                });
-
-                $('#editModal').on('hide.bs.modal', function (event) {
-                    $('#editModal .modal-body').replaceWith('<div class="modal-body" id="editModalContent"></div>');
-                });
-
-                $('#deleteModal').on('hide.bs.modal', function (event) {
-                    $('#deleteModal .modal-body').replaceWith('<div class="modal-body" id="deleteModalContent"></div>');
-                });
-
-                // Apply the search
-                oTable.columns('').every(function () {
-                    var that = this;
-                    $('input', this.footer('')).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });
-            });
-
-
-        function AtualizarConta() {
-            debugger;
-            var pagarcontaid = $("#PagarContaId").val();
-            var dataemissao = $("#DataEmissao").val();
-            var dataacolhimentocontapagar = $("#DataAcolhimentoContaPagar").val();
-            var dataprevisaopagamento = $("#DataPrevisaoPagamento").val();
-            var numeroemissaoforcenedor = $("#NumeroEmissaoFornecedor").val();
-            var descricao = $("#Descricao").val();
-            var numeroparcelas = $("#NumeroParcelas").val();
-            var observacao = $("#Observacao").val();
-            var tipoConta = $("#TipoConta").val();
-            var valortotal = $("#ValorTotal").val();
-            var centrocustoid = $("#CentroCustoId").val();
-            var unidadenegocioid = $("#UnidadeNegocioId").val();
-            var tipolancamentoid = $("#TipoLancamentoId").val();
-            var contacontabilid = $("#ContaContabilId").val();
-            var fornecedorid = $("#FornecedorId").val();
-            var contatipodocumentoid = $("#ContaTipoDocumentoId").val();
-            // ------
-            var token = $('input[name="__RequestVerificationToken"]').val();
-            var tokenadr = $('form[action="/Administrativo/ContasPagar/Editar"] input[name="__RequestVerificationToken"]').val();
-            var headers = {};
-            var headersadr = {};
-            // ------
-            headers['__RequestVerificationToken'] = token;
-            headersadr['__RequestVerificationToken'] = tokenadr;
-            var url = '/Administrativo/ContasPagar/Editar?id=' + pagarcontaid;
-            $.ajax({
-                url: url,
-                type: "POST",
-                datatype: "json",
-                headers: headersadr,
-                data: {
-                    PagarContaId: pagarcontaid,
-                    DataEmissao: dataemissao,
-                    DataAcolhimentoContaPagar: dataacolhimentocontapagar,
-                    DataPrevisaoPagamento: dataprevisaopagamento,
-                    NumeroEmissaoFornecedor: numeroemissaoforcenedor,
-                    Descricao: descricao,
-                    NumeroParcelas: numeroparcelas,
-                    Observacao: observacao,
-                    ValorTotal: valortotal,
-                    CentroCustoId: centrocustoid,
-                    FornecedorId: fornecedorid,
-                    TipoLancamentoId: tipolancamentoid,
-                    UnidadeNegocioId: unidadenegocioid,
-                    ContaContabilId: contacontabilid,
-                    ContaTipoDocumentoId: contatipodocumentoid,
-                    __RequestVerificationToken: token
-                },
-                success: function (data) {
-                    if (data.Resultado > 0) {
-                        //ListarEnderecos(data.Resultado);
-                        window.location.href = '/Administrativo/ContasPagar/Listar';
-                    } else {
-                        for (var i = 0; i < data.Resultado['Erros'].length; i++) {
+                    },
+                    error: function (json) {
+                        $('#divValidate').empty();
+                        for (var i = 0; i < json['responseJSON'].length; i++) {
                             $('#divValidate').append($('<li>', {
-                                text: data.Resultado['Erros'][i].Message
+                                text: json['responseJSON'][i].errors[0]
                             }));
                             $('#divValidate').show();
                         }
                     }
-                },
-                error: function (json) {
-                    $('#divValidate').empty();
-                    for (var i = 0; i < json['responseJSON'].length; i++) {
-                        $('#divValidate').append($('<li>', {
-                            text: json['responseJSON'][i].errors[0]
-                        }));
-                        $('#divValidate').show();
-                    }
-                }
-            })
-        }
+                })
+            }
 
-    </script>
-    <style>
-        tfoot input {
-            width: 100%;
-            padding: 3px;
-            box-sizing: border-box;
-        }
-    </style>
-}
+        </script>
+        <style>
+            tfoot input {
+                width: 100%;
+                padding: 3px;
+                box-sizing: border-box;
+            }
+
+            tr.group,
+            tr.group:hover {
+                background-color: #ddd !important;
+            }
+        </style>
+    }

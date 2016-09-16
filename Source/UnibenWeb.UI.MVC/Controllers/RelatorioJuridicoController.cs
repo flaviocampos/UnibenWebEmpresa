@@ -26,23 +26,45 @@ namespace UnibenWeb.UI.MVC.Controllers
 
         public ActionResult FillDataTables_AjaxHandler(JQueryDataTableParamModel param)
         {
-            var cont = _baseFbAppService.Query("SELECT COUNT(*) FROM CLIENTE"); ; // select count from consulta (total de registros)
+            var auxSubQryTable = "("
++ "select cl.clicodigo, cl.clinome, null as clidepnome, mv.climcompetencia,fl.FLANCTACRONIMO, (mv.climvalorunitariocobrado * mv.climqtd) as vl_total           "
++ "from cliente cl                                                                                                             "
++ "join climovimentacao mv on cl.clicodigo = mv.clicodigo                                                                      "
++ "join flancamentotipo fl on fl.flanctcodigo = mv.flanctcodigo                                                                "
++ "where cl.clicodigo = '5319' and fl.flanctcodigo = 1 and mv.climcompetencia = '201609'                                       "
++ "                                                                                                                            "
++ "union                                                                                                                       "
++ "                                                                                                                            "
++ "select cl.clicodigo, cl.clinome, de.clidepnome, mv.climcompetencia,fl.FLANCTACRONIMO, (mv.climvalorunitariocobrado * mv.climqtd) as vl_total  "
++ "from cliente cl                                                                                                             "
++ "join clidep de on cl.clicodigo = de.clicodigo                                                                               "
++ "join climovimentacao mv on cl.clicodigo = mv.clicodigo                                                                      "
++ "join flancamentotipo fl on fl.flanctcodigo = mv.flanctcodigo                                                                "
++ "where cl.clicodigo = '5319' and fl.flanctcodigo <> 1 and mv.climcompetencia = '201609'                                      "
++ ") tb";
+
+            var cont = _baseFbAppService.Query("SELECT COUNT(*) FROM " + auxSubQryTable + ""); // select count from consulta (total de registros)
             //IEnumerable<ContaPagarComCentroCustoVm> filteredContas;
             //Check whether the companies should be filtered by keyword
             var calculatedParams = param.GetCalculatedParams(Request.QueryString).ToArray();
-            var auxSelect = "tb.*";
             var whereClause = "";
             if (!String.IsNullOrEmpty(calculatedParams[0] + calculatedParams[1]))
             {
-               whereClause += " WHERE " + calculatedParams[0] + calculatedParams[1];
+                whereClause += " WHERE " + calculatedParams[0] + calculatedParams[1];
             }
-            var sql = "SELECT  * FROM CLIENTE tb " + whereClause + " ORDER BY " + calculatedParams[2]; // FIRST " + param.iDisplayLength.ToString() + " SKIP " + param.iDisplayStart.ToString() + "
+            var sql = "SELECT  * FROM " + auxSubQryTable + " " + whereClause + " ORDER BY " + calculatedParams[2]; // FIRST " + param.iDisplayLength.ToString() + " SKIP " + param.iDisplayStart.ToString() + "
             var tableData = _baseFbAppService.Query(sql); // registros com filtro
 
             var displayData = tableData.Skip(param.iDisplayStart).Take(param.iDisplayLength);
 
             var result = from c in displayData // displayedContas 
-                         select new[] { Convert.ToString(c[0]), Convert.ToString(c[1]), Convert.ToString(c[2]), Convert.ToString(c[3]), Convert.ToString(c[4]), Convert.ToString(c[5]), Convert.ToString(c[6]) };
+                         select new[] {
+                             Convert.ToString(c[0]),
+                             Convert.ToString(c[1]),
+                             Convert.ToString(c[2]),
+                             Convert.ToString(c[3]),
+                             Convert.ToString(c[4]),
+                             Convert.ToString(c[5]) };
 
 
             return Json(new

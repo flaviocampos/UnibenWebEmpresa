@@ -4,9 +4,9 @@ using UnibenWeb.Domain.Entities;
 
 namespace UnibenWeb.Application.ViewModels
 {
-    public class BancoVM
+    public class BancoVm
     {
-        public BancoVM()
+        public BancoVm()
         {
                 
         }

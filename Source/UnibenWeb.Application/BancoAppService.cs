@@ -18,11 +18,11 @@ namespace UnibenWeb.Application
         private readonly BancoRepository _bancoRepository = new BancoRepository();
         private readonly BancoReadOnlyRepository _bancoReadOnlyRepository = new BancoReadOnlyRepository();
 
-        public IEnumerable<BancoVM> BuscaComPesquisa(int skip, int take, string pesquisa)
+        public IEnumerable<BancoVm> BuscaComPesquisa(int skip, int take, string pesquisa)
         {
             var bancos = _bancoReadOnlyRepository.BuscaComPesquisa(0, 50, pesquisa);
             //return bancos;
-            return Mapper.Map<IEnumerable<Banco>, IEnumerable<BancoVM>>(bancos);
+            return Mapper.Map<IEnumerable<Banco>, IEnumerable<BancoVm>>(bancos);
         }
 
         public IEnumerable<Banco> RetornaLista(int skip, int take, string pesquisa)

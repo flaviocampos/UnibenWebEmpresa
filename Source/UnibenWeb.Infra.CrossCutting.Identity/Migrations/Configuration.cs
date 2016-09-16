@@ -58,7 +58,7 @@ namespace UnibenWeb.Infra.CrossCutting.Identity.Migrations
             var userToInsert = new ApplicationUser { Email = "uniben.juizdefora@gmail.com", UserName = "uniben.juizdefora@gmail.com", PhoneNumber = "22223333" };
             userManager.Create(userToInsert, "dlvinfo3738");
 
-            context.AcessoUserClaims.AddOrUpdate(
+            context.AspNetUserClaims.AddOrUpdate(
                 u => u.Id, new IdentityUserClaim()
                 {
                     UserId = userToInsert.Id,

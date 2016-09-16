@@ -54,70 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AbrangenciaPlano.cs" />
-    <Compile Include="Entities\AcomodacaoTipo.cs" />
     <Compile Include="Entities\Banco.cs" />
-    <Compile Include="Entities\CentroCusto.cs" />
-    <Compile Include="Entities\CheckListContrato.cs" />
-    <Compile Include="Entities\ComunicacaoPessoa.cs" />
-    <Compile Include="Entities\ContaContabil.cs" />
-    <Compile Include="Entities\ContaTipoDocumento.cs" />
-    <Compile Include="Entities\PagarConta.cs" />
-    <Compile Include="Entities\FaixaEtariaProdutoValor.cs" />
-    <Compile Include="Entities\FatorModerador.cs" />
     <Compile Include="Entities\Identity\UsuarioClaim.cs" />
     <Compile Include="Entities\Identity\UsuarioClient.cs" />
-    <Compile Include="Entities\PagarContaParcela.cs" />
-    <Compile Include="Entities\PessoaSexo.cs" />
-    <Compile Include="Entities\Procedimento.cs" />
-    <Compile Include="Entities\ProdutoTermo.cs" />
-    <Compile Include="Entities\Proposta.cs" />
-    <Compile Include="Entities\TelContato.cs" />
-    <Compile Include="Entities\Contrato.cs" />
-    <Compile Include="Entities\EstadoCivil.cs" />
-    <Compile Include="Entities\Endereco.cs" />
-    <Compile Include="Entities\GrauParentesco.cs" />
-    <Compile Include="Entities\ModoPagamento.cs" />
-    <Compile Include="Entities\Observacao.cs" />
-    <Compile Include="Entities\Pessoa.cs" />
-    <Compile Include="Entities\Produto.cs" />
-    <Compile Include="Entities\SegmentoAssistencial.cs" />
-    <Compile Include="Entities\TipoContratacaoProduto.cs" />
-    <Compile Include="Entities\PessoaTipo.cs" />
-    <Compile Include="Entities\TipoLancamento.cs" />
-    <Compile Include="Entities\UnidadeNegocio.cs" />
     <Compile Include="Interfaces\Repository\IBancoRepository.cs" />
     <Compile Include="Interfaces\Repository\IBaseFbRepository.cs" />
-    <Compile Include="Interfaces\Repository\ICentroCustoRepository.cs" />
-    <Compile Include="Interfaces\Repository\IComunicacaoPessoaRepository.cs" />
-    <Compile Include="Interfaces\Repository\IContratoRepository.cs" />
-    <Compile Include="Interfaces\Repository\IAcomodacaoTipoRepository.cs" />
-    <Compile Include="Interfaces\Repository\IAbrangenciaPlanoRepository.cs" />
     <Compile Include="Interfaces\Repository\IBaseRepository.cs" />
-    <Compile Include="Interfaces\Repository\IEnderecoRepository.cs" />
-    <Compile Include="Interfaces\Repository\IEstadoCivilRepository.cs" />
-    <Compile Include="Interfaces\Repository\IModoPagamentoRepository.cs" />
-    <Compile Include="Interfaces\Repository\IPagarContaParcelaRepository.cs" />
-    <Compile Include="Interfaces\Repository\IPagarContaRepository.cs" />
-    <Compile Include="Interfaces\Repository\IPessoaRepository.cs" />
-    <Compile Include="Interfaces\Repository\ISegmentoAssistencialRepository.cs" />
     <Compile Include="Interfaces\Repository\ReadOnly\IBancoReadOnlyRepository.cs" />
     <Compile Include="Interfaces\Repository\ReadOnly\IBaseReadOnlyRepository.cs" />
-    <Compile Include="Interfaces\Repository\ReadOnly\ICKContratoReadOnlyRepository.cs" />
-    <Compile Include="Interfaces\Repository\ReadOnly\ICorreiosReadOnlyRepository.cs" />
-    <Compile Include="Interfaces\Repository\ReadOnly\IEnderecoReadOnlyRepository.cs" />
-    <Compile Include="Interfaces\Repository\ReadOnly\IPessoaReadOnlyRepository.cs" />
     <Compile Include="Interfaces\Services\IBancoService.cs" />
     <Compile Include="Interfaces\Services\IBaseFbService.cs" />
     <Compile Include="Interfaces\Services\IBaseService.cs" />
-    <Compile Include="Interfaces\Services\ICentroCustoService.cs" />
-    <Compile Include="Interfaces\Services\ICKContratoService.cs" />
-    <Compile Include="Interfaces\Services\IComunicacaoPessoaService.cs" />
-    <Compile Include="Interfaces\Services\IEnderecoService.cs" />
-    <Compile Include="Interfaces\Services\IEstadoCivilService.cs" />
-    <Compile Include="Interfaces\Services\IPagarContaParcelaService.cs" />
-    <Compile Include="Interfaces\Services\IPagarContaService.cs" />
-    <Compile Include="Interfaces\Services\IPessoaService.cs" />
     <Compile Include="Interfaces\Specification\ISpecification.cs" />
     <Compile Include="Interfaces\Validation\IFiscal.cs" />
     <Compile Include="Interfaces\Validation\IRegra.cs" />
@@ -126,38 +73,10 @@
     <Compile Include="Services\BancoService.cs" />
     <Compile Include="Services\BaseFbService.cs" />
     <Compile Include="Services\BaseService.cs" />
-    <Compile Include="Services\CentroCustoService.cs" />
-    <Compile Include="Services\CKContratoService.cs" />
-    <Compile Include="Services\ComunicacaoPessoaService.cs" />
-    <Compile Include="Services\PagarContaParcelaService.cs" />
-    <Compile Include="Services\EnderecoService.cs" />
-    <Compile Include="Services\EstadoCivilService.cs" />
-    <Compile Include="Services\PagarContaService.cs" />
-    <Compile Include="Services\PessoaService.cs" />
-    <Compile Include="Specification\ContasPagar\ContasPagarRegraNegocio1.cs" />
-    <Compile Include="Specification\Endereco\EnderecoValidar.cs" />
-    <Compile Include="Specification\Pessoa\PessoaDataMaiorQueDataAgora.cs" />
-    <Compile Include="Specification\Pessoa\PessoaJaCadastrada.cs" />
-    <Compile Include="Specification\Pessoa\PessoaMenorIdade.cs" />
-    <Compile Include="Specification\Pessoa\PessoaPossuiCPFValido.cs" />
-    <Compile Include="Specification\Pessoa\PessoaPossuiEndereco.cs" />
-    <Compile Include="Specification\Pessoa\PessoaPossuiStatusAtivo.cs" />
     <Compile Include="Validation\Base\FiscalBase.cs" />
-    <Compile Include="Validation\CentroCustos\CentroCustoFiscalizarRegras.cs" />
-    <Compile Include="Validation\ContaContabeis\ContaContabilFiscalizarRegras.cs" />
-    <Compile Include="Validation\ContaTipoDocumentos\ContaTipoDocumentoFiscalizarRegras.cs" />
     <Compile Include="Validation\Documentos\CNPJValidation.cs" />
     <Compile Include="Validation\Documentos\CPFValidation.cs" />
-    <Compile Include="Validation\Enderecos\EnderecoValidacaoGeral.cs" />
-    <Compile Include="Validation\PagarContaParcelas\ContaPagarParcelaFiscalizarRegras.cs" />
-    <Compile Include="Validation\PagarContas\ContaPagarFiscalizarRegras.cs" />
-    <Compile Include="Validation\PagarContas\RegraNegocioContasPagar.cs" />
-    <Compile Include="Validation\Pessoas\PessoaAptaParaEntrarNoSistema.cs" />
-    <Compile Include="Validation\Pessoas\PessoaEstaAptaParaEntrarNoSistema.cs" />
     <Compile Include="Validation\Regra.cs" />
-    <Compile Include="Validation\TipoLancamentos\TipoLancamentoFiscalizarRegras.cs" />
-    <Compile Include="Validation\UnidadesNegocio\UnidadeNegocioFiscalizarRegras.cs" />
-    <Compile Include="ValueObjects\EnderecosPessoa.cs" />
     <Compile Include="ValueObjects\ValidationError.cs" />
     <Compile Include="ValueObjects\ValidationResult.cs" />
   </ItemGroup>
@@ -165,7 +84,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Specification\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
